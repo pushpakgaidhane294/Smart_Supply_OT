@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="SmartSupply - Transportation Cost Optimization System"
+    >
+
+    <title>
+        SmartSupply | Transportation Cost Optimizer
+    </title>
+
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="#top"
+            class="brand"
+        >
+
+            <div class="brand-mark">
+                SS
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    SmartSupply
+                </strong>
+
+                <span>
+                    Transportation Optimizer
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-links">
+
+            <a href="#problem">
+                Problem
+            </a>
+
+            <a href="#methods">
+                Methods
+            </a>
+
+            <a href="#results">
+                Results
+            </a>
+
+            <a href="#analytics">
+                Analytics
+            </a>
+
+            <a href="#whatif">
+                What-If
+            </a>
+
+        </nav>
+
+
+        <!-- NAV STATUS -->
+
+        <div class="nav-status">
+
+            <span class="status-dot"></span>
+
+            <span>
+                Optimization Ready
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main id="top">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-background-grid"></div>
+
+    <div class="hero-container">
+
+
+        <!-- HERO CONTENT -->
+
+        <div class="hero-content">
+
+            <div class="hero-eyebrow">
+
+                <span class="eyebrow-line"></span>
+
+                TRANSPORTATION OPTIMIZATION SYSTEM
+
+            </div>
+
+
+            <h1>
+
+                Optimize Your
+
+                <span>
+                    Transportation Network
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Find cost-efficient transportation plans by
+                allocating supply from multiple sources to
+                multiple destinations using classical
+                transportation optimization techniques.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <button
+                    class="btn btn-primary btn-large"
+                    onclick="loadSampleDataset()"
+                >
+
+                    <span class="btn-icon">
+                        ↓
+                    </span>
+
+                    Load Sample Dataset
+
+                </button>
+
+
+                <button
+                    class="btn btn-light btn-large"
+                    onclick="createNewProblem()"
+                >
+
+                    <span class="btn-icon">
+                        +
+                    </span>
+
+                    Create New Problem
+
+                </button>
+
+            </div>
+
+
+            <div class="hero-note">
+
+                <span>●</span>
+
+                No registration required
+
+                <span class="hero-separator">•</span>
+
+                Instant re-optimization
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HERO LOGISTICS VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="network-card">
+
+
+                <div class="network-header">
+
+                    <div>
+
+                        <span class="mini-label">
+                            NETWORK STATUS
+                        </span>
+
+                        <strong>
+                            Supply Chain
+                        </strong>
+
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+
+                </div>
+
+
+                <div class="network-map">
+
+
+                    <div class="network-node source-node node-one">
+
+                        <div class="node-icon">
+                            F
+                        </div>
+
+                        <span>
+                            Factory
+                        </span>
+
+                    </div>
+
+
+                    <div class="route-line line-one"></div>
+                    <div class="route-line line-two"></div>
+                    <div class="route-line line-three"></div>
+
+
+                    <div class="network-node source-node node-two">
+
+                        <div class="node-icon">
+                            F
+                        </div>
+
+                        <span>
+                            Factory
+                        </span>
+
+                    </div>
+
+
+                    <div class="network-node warehouse-node warehouse-one">
+
+                        <div class="node-icon warehouse-icon">
+                            W
+                        </div>
+
+                        <span>
+                            Warehouse
+                        </span>
+
+                    </div>
+
+
+                    <div class="network-node warehouse-node warehouse-two">
+
+                        <div class="node-icon warehouse-icon">
+                            W
+                        </div>
+
+                        <span>
+                            Warehouse
+                        </span>
+
+                    </div>
+
+
+                    <div class="network-node warehouse-node warehouse-three">
+
+                        <div class="node-icon warehouse-icon">
+                            W
+                        </div>
+
+                        <span>
+                            Warehouse
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="network-footer">
+
+                    <div>
+
+                        <span class="network-value">
+                            1,500
+                        </span>
+
+                        <span class="network-label">
+                            Units
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="network-value orange-value">
+                            MIN
+                        </span>
+
+                        <span class="network-label">
+                            Cost Target
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="network-value teal-value">
+                            ✓
+                        </span>
+
+                        <span class="network-label">
+                            Optimizable
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SYSTEM STATUS
+===================================================== -->
+
+<section class="status-strip">
+
+    <div class="content-container">
+
+        <div class="status-message">
+
+            <span
+                class="status-indicator"
+                id="statusIndicator"
+            ></span>
+
+            <span id="statusMessage">
+                Ready to build your transportation problem.
+            </span>
+
+        </div>
+
+
+        <div class="status-info">
+
+            <span>
+                Linear Transportation Model
+            </span>
+
+            <span class="status-divider">
+                |
+            </span>
+
+            <span>
+                Classical OT Methods
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROBLEM SECTION
+===================================================== -->
+
+<section
+    class="section problem-section"
+    id="problem"
+>
+
+    <div class="content-container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    STEP 01
+                </span>
+
+                <h2>
+                    Build Your Transportation Problem
+                </h2>
+
+                <p>
+                    Define your sources, destinations, supply,
+                    demand, and transportation costs.
+                </p>
+
+            </div>
+
+            <div class="section-step-badge">
+                INPUT
+            </div>
+
+        </div>
+
+
+
+        <!-- QUICK STATS -->
+
+        <div class="quick-stats">
+
+            <div class="quick-stat">
+
+                <div class="quick-stat-icon blue-icon">
+                    S
+                </div>
+
+                <div>
+
+                    <span>
+                        Sources
+                    </span>
+
+                    <strong id="sourceCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-stat">
+
+                <div class="quick-stat-icon teal-icon">
+                    D
+                </div>
+
+                <div>
+
+                    <span>
+                        Destinations
+                    </span>
+
+                    <strong id="destinationCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-stat">
+
+                <div class="quick-stat-icon orange-icon">
+                    U
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Supply
+                    </span>
+
+                    <strong id="supplyCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-stat">
+
+                <div class="quick-stat-icon navy-icon">
+                    R
+                </div>
+
+                <div>
+
+                    <span>
+                        Total Demand
+                    </span>
+
+                    <strong id="demandCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MATRIX TOOLBAR -->
+
+        <div class="matrix-toolbar">
+
+            <div>
+
+                <span class="toolbar-label">
+                    TRANSPORTATION MATRIX
+                </span>
+
+                <h3>
+                    Supply, Demand & Route Costs
+                </h3>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- DYNAMIC MATRIX -->
+
+        <div
+            id="matrixContainer"
+            class="matrix-container hidden"
+        >
+
+            <div
+                id="matrixWrapper"
+                class="matrix-wrapper"
+            ></div>
+
+        </div>
+
+
+
+        <!-- MATRIX EMPTY STATE -->
+
+        <div
+            id="matrixEmptyState"
+            class="empty-state"
+        >
+
+            <div class="empty-state-icon">
+                +
+            </div>
+
+            <h3>
+                No transportation problem loaded
+            </h3>
+
+            <p>
+                Load the sample dataset or create a new
+                transportation problem to begin.
+            </p>
+
+
+            <div class="empty-state-actions">
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    onclick="loadSampleDataset()"
+                >
+                    Load Sample Dataset
+                </button>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="createNewProblem()"
+                >
+                    Create New Problem
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- VALIDATION -->
+
+        <div
+            id="validationPanel"
+            class="validation-panel hidden"
+        >
+
+            <div class="validation-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <strong id="validationTitle">
+                    Problem Status
+                </strong>
+
+                <p id="validationMessage">
+                    —
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="optimization-action">
+
+            <button
+                id="optimizeButton"
+                class="btn btn-primary btn-large"
+                onclick="runOptimization()"
+            >
+                Run Optimization
+                <span class="arrow">→</span>
+            </button>
+
+        </div>
+
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     METHODS
+===================================================== -->
+
+<section
+    class="section methods-section"
+    id="methods"
+>
+
+    <div class="content-container">
+
+
+        <div class="section-heading centered-heading">
+
+            <span class="section-label">
+                STEP 02
+            </span>
+
+            <h2>
+                Classical Transportation Methods
+            </h2>
+
+            <p>
+                SmartSupply compares three classical transportation
+                solution methods and their transportation costs.
+            </p>
+
+        </div>
+
+
+
+        <div class="methods-grid">
+
+
+            <!-- NORTHWEST -->
+
+            <article class="method-card">
+
+                <div class="method-top">
+
+                    <div class="method-number">
+                        01
+                    </div>
+
+                    <div class="method-tag">
+                        INITIAL SOLUTION
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Northwest Corner
+                </h3>
+
+                <p>
+                    Builds an initial feasible transportation
+                    allocation starting from the upper-left
+                    corner of the matrix.
+                </p>
+
+
+                <div class="method-footer">
+                    <span>
+                        Feasible Solution
+                    </span>
+
+                    <span class="method-arrow">
+                        →
+                    </span>
+                </div>
+
+            </article>
+
+
+
+            <!-- LEAST COST -->
+
+            <article class="method-card">
+
+                <div class="method-top">
+
+                    <div class="method-number">
+                        02
+                    </div>
+
+                    <div class="method-tag">
+                        INITIAL SOLUTION
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Least Cost
+                </h3>
+
+                <p>
+                    Prioritizes the lowest transportation costs
+                    while satisfying supply and demand constraints.
+                </p>
+
+
+                <div class="method-footer">
+                    <span>
+                        Cost Based
+                    </span>
+
+                    <span class="method-arrow">
+                        →
+                    </span>
+                </div>
+
+            </article>
+
+
+
+            <!-- VAM -->
+
+            <article class="method-card featured-method">
+
+                <div class="method-top">
+
+                    <div class="method-number">
+                        03
+                    </div>
+
+                    <div class="method-tag orange-tag">
+                        HEURISTIC
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Vogel's Approximation
+                </h3>
+
+                <p>
+                    Uses row and column penalties to construct
+                    a strong initial feasible solution.
+                </p>
+
+
+                <div class="method-footer">
+                    <span>
+                        Penalty Based
+                    </span>
+
+                    <span class="method-arrow">
+                        →
+                    </span>
+                </div>
+
+            </article>
+        </div>
+
+
+
+        <div class="method-note">
+
+            <span class="method-note-icon">
+                i
+            </span>
+
+            <p>
+                Northwest Corner, Least Cost, and Vogel's
+                Approximation generate feasible transportation
+                allocations. SmartSupply compares their total
+                transportation costs and uses the VAM allocation
+                for the selected plan.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULTS
+===================================================== -->
+
+<section
+    class="section results-section"
+    id="results"
+>
+
+    <div class="content-container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    STEP 03
+                </span>
+
+                <h2>
+                    Optimization Results
+                </h2>
+
+                <p>
+                    Review the optimized transportation plan,
+                    total cost, savings, and solution status.
+                </p>
+
+            </div>
+
+
+            <div
+                class="optimization-status"
+                id="optimizationStatusBadge"
+            >
+
+                <span class="status-dot"></span>
+
+                <span id="optimizationStatus">
+                    Awaiting Optimization
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESULT SUMMARY -->
+
+        <div class="result-summary">
+
+
+            <div class="result-card result-card-primary">
+
+                <div class="result-card-top">
+
+                    <span class="result-label">
+                        VAM COST
+                    </span>
+
+                    <div class="result-icon orange-result-icon">
+                        ₹
+                    </div>
+
+                </div>
+
+
+                <strong id="optimizedCost">
+                    —
+                </strong>
+
+
+                <span class="result-description">
+                    Vogel's Approximation cost
+                </span>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <div class="result-card-top">
+
+                    <span class="result-label">
+                        NWC COST
+                    </span>
+
+                    <div class="result-icon blue-result-icon">
+                        I
+                    </div>
+
+                </div>
+
+
+                <strong id="initialCost">
+                    —
+                </strong>
+
+
+                <span class="result-description">
+                    Northwest Corner comparison
+                </span>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <div class="result-card-top">
+
+                    <span class="result-label">
+                        VAM vs NWC
+                    </span>
+
+                    <div class="result-icon teal-result-icon">
+                        ↓
+                    </div>
+
+                </div>
+
+
+                <strong id="costSavings">
+                    —
+                </strong>
+
+
+                <span
+                    class="result-description"
+                    id="savingsPercentage"
+                >
+                    NWC − VAM percentage
+                </span>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <div class="result-card-top">
+
+                    <span class="result-label">
+                        TOTAL UNITS
+                    </span>
+
+                    <div class="result-icon navy-result-icon">
+                        U
+                    </div>
+
+                </div>
+
+
+                <strong id="totalUnits">
+                    —
+                </strong>
+
+
+                <span class="result-description">
+                    Total transportation volume
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- EXPORT ACTIONS -->
+
+        <div class="export-actions">
+
+            <div>
+
+                <span class="toolbar-label">
+                    REPORTING
+                </span>
+
+                <h3>
+                    Export Results
+                </h3>
+
+            </div>
+
+
+            <div class="export-buttons">
+
+                <button
+                    class="btn btn-outline"
+                    onclick="exportAllocationCSV()"
+                >
+                    ↓ Allocation CSV
+                </button>
+
+
+                <button
+                    class="btn btn-outline"
+                    onclick="exportComparisonCSV()"
+                >
+                    ↓ Cost Comparison
+                </button>
+
+
+                <button
+                    class="btn btn-primary"
+                    onclick="printOptimizationReport()"
+                >
+                    Print Report
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- METHOD COMPARISON -->
+
+        <div class="result-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="section-label">
+                        COST ANALYSIS
+                    </span>
+
+                    <h3>
+                        Method Cost Comparison
+                    </h3>
+
+                    <p>
+                        Compare the transportation cost produced
+                        by each method.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="comparisonContainer"
+                class="comparison-container"
+            >
+
+                <div class="results-placeholder">
+
+                    <span>
+                        Run optimization to view method comparison.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FINAL ALLOCATION -->
+
+        <div class="result-panel allocation-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="section-label">
+                        FINAL PLAN
+                    </span>
+
+                    <h3>
+                        Optimized Transportation Allocation
+                    </h3>
+
+                    <p>
+                        Selected allocation produced by Vogel's Approximation Method.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="allocationContainer"
+                class="allocation-container"
+            >
+
+                <div class="results-placeholder">
+
+                    <span>
+                        Run optimization to view the final allocation.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ANALYTICS
+===================================================== -->
+
+<section
+    class="section analytics-section"
+    id="analytics"
+>
+
+    <div class="content-container">
+
+
+        <div class="section-heading centered-heading">
+
+            <span class="section-label">
+                STEP 04
+            </span>
+
+            <h2>
+                Optimization Analytics
+            </h2>
+
+            <p>
+                Analyze transportation costs and resource allocation
+                across the three transportation methods.
+            </p>
+
+        </div>
+
+
+
+        <div class="analytics-grid">
+
+
+            <!-- COST CHART -->
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            COST ANALYSIS
+                        </span>
+
+                        <h3>
+                            Method Cost Comparison
+                        </h3>
+
+                    </div>
+
+                    <span class="chart-badge">
+                        ₹
+                    </span>
+
+                </div>
+
+
+                <div class="chart-container">
+
+                    <canvas
+                        id="costComparisonChart"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SAVINGS CHART -->
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            SAVINGS ANALYSIS
+                        </span>
+
+                        <h3>
+                            VAM Cost vs NWC Cost
+                        </h3>
+
+                    </div>
+
+                    <span class="chart-badge teal-chart-badge">
+                        %
+                    </span>
+
+                </div>
+
+
+                <div class="chart-container">
+
+                    <canvas
+                        id="savingsChart"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ALLOCATION CHART -->
+
+            <div class="chart-card chart-wide">
+
+                <div class="chart-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            NETWORK ANALYSIS
+                        </span>
+
+                        <h3>
+                            Transportation Allocation
+                        </h3>
+
+                    </div>
+
+                    <span class="chart-badge blue-chart-badge">
+                        UNITS
+                    </span>
+
+                </div>
+
+
+                <div class="chart-container allocation-chart">
+
+                    <canvas
+                        id="allocationChart"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHAT-IF SIMULATOR
+===================================================== -->
+
+<section
+    class="section whatif-section"
+    id="whatif"
+>
+
+    <div class="content-container">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    STEP 05
+                </span>
+
+                <h2>
+                    What-If Simulator
+                </h2>
+
+                <p>
+                    Change transportation costs, supply, or demand
+                    and instantly evaluate the effect on the
+                    optimized solution.
+                </p>
+
+            </div>
+
+
+            <div class="section-step-badge orange-step-badge">
+                SCENARIO
+            </div>
+
+        </div>
+
+
+
+        <!-- SCENARIO BUILDER -->
+
+        <div class="whatif-card">
+
+
+            <div class="whatif-header">
+
+                <div>
+
+                    <span class="section-label">
+                        SCENARIO BUILDER
+                    </span>
+
+                    <h3>
+                        Create a What-If Scenario
+                    </h3>
+
+                    <p>
+                        Modify one or more values from the current
+                        transportation problem.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="btn btn-outline"
+                    onclick="resetScenario()"
+                >
+                    Reset Scenario
+                </button>
+
+            </div>
+
+
+
+            <!-- COST -->
+
+            <div class="scenario-group">
+
+                <div class="scenario-group-heading">
+
+                    <div class="scenario-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Transportation Cost
+                        </h4>
+
+                        <p>
+                            Change the cost of a specific route.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="scenario-grid">
+
+
+                    <div class="control-group">
+
+                        <label for="scenarioCostSource">
+                            Source
+                        </label>
+
+                        <select id="scenarioCostSource">
+
+                            <option value="">
+                                Select Source
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="scenarioCostDestination">
+                            Destination
+                        </label>
+
+                        <select id="scenarioCostDestination">
+
+                            <option value="">
+                                Select Destination
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="scenarioCost">
+                            New Cost
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="scenarioCost"
+                                min="0"
+                                step="0.01"
+                                placeholder="Enter new cost"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SUPPLY -->
+
+            <div class="scenario-group">
+
+                <div class="scenario-group-heading">
+
+                    <div class="scenario-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Supply
+                        </h4>
+
+                        <p>
+                            Change the available supply at a source.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="scenario-grid scenario-two">
+
+
+                    <div class="control-group">
+
+                        <label for="scenarioSupplySource">
+                            Source
+                        </label>
+
+                        <select id="scenarioSupplySource">
+
+                            <option value="">
+                                Select Source
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="scenarioSupply">
+                            New Supply
+                        </label>
+
+                        <input
+                            type="number"
+                            id="scenarioSupply"
+                            min="0"
+                            step="1"
+                            placeholder="Enter new supply"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DEMAND -->
+
+            <div class="scenario-group">
+
+                <div class="scenario-group-heading">
+
+                    <div class="scenario-number">
+                        03
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Demand
+                        </h4>
+
+                        <p>
+                            Change the required demand at a destination.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="scenario-grid scenario-two">
+
+
+                    <div class="control-group">
+
+                        <label for="scenarioDemandDestination">
+                            Destination
+                        </label>
+
+                        <select id="scenarioDemandDestination">
+
+                            <option value="">
+                                Select Destination
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="control-group">
+
+                        <label for="scenarioDemand">
+                            New Demand
+                        </label>
+
+                        <input
+                            type="number"
+                            id="scenarioDemand"
+                            min="0"
+                            step="1"
+                            placeholder="Enter new demand"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACTION -->
+
+            <div class="scenario-actions">
+
+                <div class="scenario-tip">
+
+                    <span>
+                        i
+                    </span>
+
+                    <p>
+                        Leave unused fields empty. You can modify
+                        one or more parameters at a time.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="btn btn-primary btn-large"
+                    onclick="runScenario()"
+                >
+
+                    Run Scenario
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SCENARIO RESULTS -->
+
+        <div
+            id="scenarioResults"
+            class="scenario-results"
+            style="display: none;"
+        >
+
+
+            <div class="section-heading scenario-result-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        SCENARIO RESULT
+                    </span>
+
+                    <h2>
+                        Before vs After
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="result-summary">
+
+
+                <div class="result-card">
+
+                    <span class="result-label">
+                        ORIGINAL COST
+                    </span>
+
+                    <strong id="scenarioOriginalCost">
+                        —
+                    </strong>
+
+                    <span class="result-description">
+                        Current optimized solution
+                    </span>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span class="result-label">
+                        SCENARIO COST
+                    </span>
+
+                    <strong id="scenarioNewCost">
+                        —
+                    </strong>
+
+                    <span class="result-description">
+                        New optimized solution
+                    </span>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span class="result-label">
+                        COST DIFFERENCE
+                    </span>
+
+                    <strong id="scenarioDifference">
+                        —
+                    </strong>
+
+                    <span class="result-description">
+                        Absolute change
+                    </span>
+
+                </div>
+
+
+                <div class="result-card">
+
+                    <span class="result-label">
+                        PERCENTAGE CHANGE
+                    </span>
+
+                    <strong id="scenarioPercentage">
+                        —
+                    </strong>
+
+                    <span class="result-description">
+                        Relative change
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="scenario-comparison-panel">
+
+                <div class="scenario-status-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span class="section-label">
+                        SCENARIO STATUS
+                    </span>
+
+                    <h3 id="scenarioStatus">
+                        —
+                    </h3>
+
+                    <p id="scenarioMessage">
+                        —
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="result-panel scenario-allocation-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            SCENARIO ALLOCATION
+                        </span>
+
+                        <h3>
+                            New Optimized Transportation Plan
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="scenarioAllocationContainer"
+                    class="allocation-container"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="section about-section"
+    id="about"
+>
+
+    <div class="content-container">
+
+
+        <div class="about-grid">
+
+
+            <div>
+
+                <span class="section-label">
+                    ABOUT SMARTSUPPLY
+                </span>
+
+                <h2>
+                    A practical optimization system for
+                    transportation planning.
+                </h2>
+
+                <p>
+                    SmartSupply demonstrates how Operations Research
+                    transportation models can be applied to real-world
+                    supply chain decisions.
+                </p>
+
+                <p>
+                    The system compares classical transportation
+                    methods, evaluates allocation costs, and provides
+                    a what-if environment for testing changing
+                    business conditions.
+                </p>
+
+            </div>
+
+
+            <div class="about-features">
+
+
+                <div class="about-feature">
+
+                    <div class="about-feature-icon">
+                        01
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Cost Optimization
+                        </strong>
+
+                        <p>
+                            Minimize the overall transportation cost.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-feature">
+
+                    <div class="about-feature-icon">
+                        02
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Resource Allocation
+                        </strong>
+
+                        <p>
+                            Match supply with destination demand.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-feature">
+
+                    <div class="about-feature-icon">
+                        03
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Scenario Analysis
+                        </strong>
+
+                        <p>
+                            Test changing costs, supply, and demand.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-feature">
+
+                    <div class="about-feature-icon">
+                        04
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Analytical Reporting
+                        </strong>
+
+                        <p>
+                            Compare methods and export results.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="content-container">
+
+        <div class="footer-main">
+
+
+            <div class="footer-brand">
+
+                <div class="brand">
+
+                    <div class="brand-mark">
+                        SS
+                    </div>
+
+                    <div class="brand-text">
+
+                        <strong>
+                            SmartSupply
+                        </strong>
+
+                        <span>
+                            Transportation Optimizer
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Real-world transportation cost optimization
+                    using Operations Research techniques.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#problem">
+                    Problem
+                </a>
+
+                <a href="#methods">
+                    Methods
+                </a>
+
+                <a href="#results">
+                    Results
+                </a>
+
+                <a href="#whatif">
+                    What-If
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                SmartSupply Transportation Cost Optimization System
+            </span>
+
+            <span>
+                Operations Research
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     CHART.JS
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+></script>
+
+
+<!-- =====================================================
+     MAIN JAVASCRIPT
+===================================================== -->
+
+<script
+    src="{{ url_for('static', filename='js/main.js') }}"
+></script>
+
+
+</body>
+
+</html>

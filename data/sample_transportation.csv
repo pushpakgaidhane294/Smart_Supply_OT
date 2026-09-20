@@ -1,0 +1,13 @@
+source,destination,cost,supply,demand
+Nagpur Factory,Mumbai Warehouse,8,500,450
+Nagpur Factory,Pune Warehouse,6,500,550
+Nagpur Factory,Delhi Warehouse,10,500,500
+Nagpur Factory,Nashik Warehouse,9,500,0
+Pune Factory,Mumbai Warehouse,5,400,450
+Pune Factory,Pune Warehouse,4,400,550
+Pune Factory,Delhi Warehouse,9,400,500
+Pune Factory,Nashik Warehouse,7,400,0
+Delhi Factory,Mumbai Warehouse,11,600,450
+Delhi Factory,Pune Warehouse,8,600,550
+Delhi Factory,Delhi Warehouse,3,600,500
+Delhi Factory,Nashik Warehouse,6,600,0
